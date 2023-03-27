@@ -11,6 +11,7 @@ async function run() {
     const imageURI = core.getInput('image', { required: true });
 
     const environmentVariables = core.getInput('environment-variables', { required: false });
+    const environmentDelimiter = core.getInput('environment-delimiter', { required: false });
 
     // Parse the task definition
     const taskDefPath = path.isAbsolute(taskDefinitionFile) ?
@@ -41,7 +42,7 @@ async function run() {
       }
 
       // Get pairs by splitting on newlines
-      environmentVariables.split('\n').forEach(function (line) {
+      environmentVariables.split(environmentDelimiter).forEach(function (line) {
         // Trim whitespace
         const trimmedLine = line.trim();
         // Skip if empty

@@ -16,6 +16,10 @@ inputs:
   environment-variables:
     description: 'Variables to add to the container. Each variable is of the form KEY=value, you can specify multiple variables with multi-line YAML strings.'
     required: false
+  environment-delimiter:
+    description: 'Delimiter string between each envionrment variable, by default "/n" but you can use ",/n". Usefull for environment variable value with line like a RSA key.'
+    required: false
+    default: '\n'
 outputs:
   task-definition:
     description: 'The path to the rendered task definition file'

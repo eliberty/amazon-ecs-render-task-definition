@@ -27,7 +27,8 @@ describe('Render task definition', () => {
             .mockReturnValueOnce('task-definition.json') // task-definition
             .mockReturnValueOnce('web')                  // container-name
             .mockReturnValueOnce('nginx:latest')         // image
-            .mockReturnValueOnce('FOO=bar\nHELLO=world'); // environment-variables
+            .mockReturnValueOnce('FOO=bar\nHELLO=world') // environment-variables
+            .mockReturnValueOnce('\n');                  // environment-delimiter
 
         process.env = Object.assign(process.env, { GITHUB_WORKSPACE: __dirname });
         process.env = Object.assign(process.env, { RUNNER_TEMP: '/home/runner/work/_temp' });
